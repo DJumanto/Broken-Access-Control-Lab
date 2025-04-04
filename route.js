@@ -1,4 +1,5 @@
 import express from 'express';
+import {signUp, signIn} from './controllers/authController.js';
 const route = express.Router();
 
 //Broken Access Control Lab Routes
@@ -13,18 +14,18 @@ const route = express.Router();
  * user can create note for other users
  */
 
-route.get('/admin')
-route.get('/admin/list-users')
-route.get('/admin/upgrade-user')
-route.get('/api/admin/list-users')
-route.post('/api/admin/upgrade-user')
-route.get('/api/user/:id')
-route.get('/me')
-route.get('/me/note')
-route.get('/api/note/:id')
-route.post('/api/note')
-route.get('/')
-route.post('/api/signup')
-route.post('/api/signin')
+// route.get('/admin')
+// route.get('/admin/list-users')
+// route.get('/admin/upgrade-user')
+// route.get('/api/admin/list-users')
+// route.post('/api/admin/upgrade-user')
+// route.get('/api/user/:id')
+// route.get('/me')
+// route.get('/me/note')
+// route.get('/api/note/:id')
+// route.post('/api/note')
+// route.get('/')
+route.post('/api/signup', signUp)
+route.post('/api/signin', signIn)
 
-module.exports = route;
+export default route;

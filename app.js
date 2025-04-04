@@ -1,5 +1,5 @@
 import express from 'express';
-// import route from './route';
+import route from './route.js';
 import path from 'path';
 import db from './repository/database.js';
 import { fileURLToPath } from 'url';
@@ -14,6 +14,7 @@ const __dirname = path.dirname(__filename);
 // Middleware
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(route);
 
 (async () => {
     try{
@@ -26,6 +27,3 @@ app.use(express.static(path.join(__dirname, 'public')));
         console.error('Error seeding database:', error);
     }
 })();
-
-// Routes (uncomment if needed)
-// app.use(route);
