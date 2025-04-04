@@ -1,0 +1,43 @@
+version: '3'
+
+services:
+  bac-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: bac-app
+    ports:
+      - "3000:3000"
+    networks:
+      - bac-network
+    environment:
+      - NODE_ENV=development
+      - DB_HOST=bacdb
+      - DB_PORT=3306
+      - DB_USERNAME=user
+      - DB_PASSWORD=password
+      - DB_DATABASE=bac_db
+      - PORT=3000
+    depends_on:
+      db:
+        condition: service_healthy
+        restart: true
+  db:
+    image: mysql:latest
+    container_name: bacdb
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: bac_db
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h 127.0.0.1 -uuser -ppassword"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    networks:
+      - bac-network
+
+networks:
+  bac-network:
+    driver: bridge  
