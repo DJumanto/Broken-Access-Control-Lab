@@ -39,4 +39,8 @@ route.post('/user/:id/create-note', checkIsLogin, createNote);
 route.get('/note/:id', checkIsLogin ,getNoteByID);
 route.post('/api/signup', upload.single('photoProfile'),signUp);
 route.post('/api/login',login);
+route.get('/robots.txt', (req, res) => {
+    res.type('text/plain');
+    res.send('User-agent: *\nDisallow: /admin\nDisallow: /admin/list-users\n');
+});
 export default route;
