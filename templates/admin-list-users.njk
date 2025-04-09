@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List Users - Admin</title>
+    <link rel="stylesheet" href="/css/admin.css">
+    <link rel="stylesheet" href="/css/list-users.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo">DJuman Admin</div>
+    <ul class="nav-links">
+        <li><a href="/admin/list-users">List Users</a></li>
+        <li><a href="/">Back to Home</a></li>
+        <li><a class="logout" href="/logout">Logout</a></li>
+    </ul>
+</nav>
+
+<main class="container">
+    <h1>List Users</h1>
+
+    <div class="users-list">
+        {% for user in users %}
+            <div class="user-card">
+                <img src="{{ user.photo_profile }}" alt="Profile" class="profile-img">
+                <div class="user-info">
+                    <h2>{{ user.name }}</h2>
+                    <p>Email: {{ user.email }}</p>
+                    <p>Current Role: <strong>{{ user.role }}</strong></p>
+
+                    <form action="/api/admin/upgrade-user/{{ user.id }}" method="POST">
+                        <select name="role" required>
+                            <option value="user" {% if user.role == 'user' %}selected{% endif %}>User</option>
+                            <option value="co-admin" {% if user.role == 'co-admin' %}selected{% endif %}>Co-Admin</option>
+                            <option value="admin" {% if user.role == 'admin' %}selected{% endif %}>Admin</option>
+                        </select>
+                        <button type="submit">Change Role</button>
+                    </form>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+</main>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ note.title }} - Note Detail</title>
+    <link rel="stylesheet" href="/css/user-note-detail.css">
+</head>
+<body>
+    <div class="container">
+        <h1>{{ note.title }}</h1>
+
+        <div class="note-meta">
+            <span>Created at: {{ note.createdAt }}</span>
+        </div>
+        <div class="note-meta">
+            <span>Updated at: {{ note.updatedAt }}</span>
+        </div>
+
+        <div class="note-content">
+            <p>{{ note.content }}</p>
+        </div>
+    </div>
+</body>
+</html>

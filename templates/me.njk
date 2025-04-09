@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ user.name }} Dashboard</title>
+    <link rel="stylesheet" href="/css/dashboard.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">DJuman Note</div>
+        <ul>
+            <li><a href="/user/{{ user.id }}">{{ user.name }}</a></li>
+            <li><a href="/user/{{ user.id }}/note">Note</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="profile-preview">
+            <img id="previewImage" src="{{ user.photo_profile }}" alt="Profile Preview">
+        </div>
+        <h1>Welcome, {{ user.name }}!</h1>
+        <p>Hope you're having a productive day!</p>
+    </main>
+</body>
+</html>

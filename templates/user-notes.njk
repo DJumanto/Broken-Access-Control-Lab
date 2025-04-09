@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ name }}'s Notes</title>
+    <link rel="stylesheet" href="/css/user-notes.css">
+</head>
+<body>
+    <h1>{{ name }}'s Notes</h1>
+
+    {% if notes.length > 0 %}
+        <div class="notes-container">
+            {% for note in notes %}
+                <div class="note-card">
+                    <h3>{{ note.title }}</h3>
+                    <p>{{ note.content | truncate(20, true, '...') }}</p>
+
+                    <a href="/note/{{ note.id }}" class="detail-link">View Detail →</a>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>No notes available.</p>
+    {% endif %}
+
+    <a href="/">← Back to Home</a>
+</body>
+</html>

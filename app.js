@@ -4,17 +4,27 @@ import path from 'path';
 import db from './repository/database.js';
 import { fileURLToPath } from 'url';
 import seed from './seeder/seed.js';
+import nunjucks from 'nunjucks';
 
 const app = express();
 const PORT = process.env.PORT || 42690;
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+nunjucks.configure('templates', {
+    autoescape: true,
+    express: app,
+});
 
 // Middleware
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
+app.set('view engine', 'njk');
 app.use(route);
+app.use((req, res, next) => {
+    res.status(404).render('404', { url: req.originalUrl });
+});
 
 (async () => {
     try{

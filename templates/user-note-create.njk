@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New Note</title>
+    <link rel="stylesheet" href="/css/user-note-create.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Create New Note</h1>
+
+        <form action="/user/{{ id }}/create-note" method="POST" class="note-form">
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" id="title" name="title" placeholder="Note Title" required>
+            </div>
+
+            <div class="form-group">
+                <label for="content">Content</label>
+                <textarea id="content" name="content" rows="6" placeholder="Write your note here..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn-submit">Create</button>
+        </form>
+
+        <a href="/user/{{ id }}/note" class="back-link">← Back to Notes</a>
+    </div>
+</body>
+</html>

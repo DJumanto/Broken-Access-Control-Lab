@@ -1,0 +1,111 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #0d1117;
+    color: #c9d1d9;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #161b22;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #58a6ff;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+
+.nav-links a {
+    color: #c9d1d9;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    transition: background 0.3s;
+}
+
+.nav-links a:hover {
+    background-color: #21262d;
+}
+
+.container {
+    padding: 2rem;
+}
+
+.users-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.user-card {
+    background-color: #161b22;
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.profile-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+}
+
+.user-info h2 {
+    margin-bottom: 0.5rem;
+    color: #fff;
+}
+
+form {
+    margin-top: 1rem;
+}
+
+select, button {
+    padding: 0.5rem;
+    border-radius: 4px;
+    border: none;
+    outline: none;
+}
+
+select {
+    margin-right: 0.5rem;
+}
+
+button {
+    background-color: #238636;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.nav-links a.logout{
+    background-color: #ff4c4c;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.nav-links a.logout:hover{
+    color: #e74c3c;
+    background-color: white;
+}
+
+button:hover {
+    background-color: #2ea043;
+}

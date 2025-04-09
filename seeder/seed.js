@@ -22,7 +22,7 @@ const users =
         await bcrypt.hash("GedaGediGedaGedaO", 10),
         "Fay",
         "user",
-        "/img/TmFiaWwgSXJhd2FuCg==.jpeg"
+        "/img/TmFiaWwgSXJhd2FuCg==.png"
     ],
     [
         "Nabil@uwuwuw.com",
@@ -33,14 +33,14 @@ const users =
     ],
     [
         "emma@stream.com",
-        await bcrypt.hash("SearchForEmma", 10),
+        await bcrypt.hash("Makima", 10),
         "Emma",
         "user",
-        "/img/ZW1tYQ==.jpeg"
+        "/img/ZW1tYQ==.webp"
     ],
     [
-        "Ayase@basket.com",
-        await bcrypt.hash("SiAyase", 10),
+        "Ayase@Mayasi.com",
+        await bcrypt.hash("SiMayasi", 10),
         "Ayase",
         "user",
         "/img/QXlhc2U=.jpeg"
@@ -50,7 +50,7 @@ const users =
         await bcrypt.hash("NoaUltramanJagoWok", 10),
         "Noa",
         "user",
-        "Tm9h.jpeg"
+        "/img/Tm9h.jpg"
     ]
 ]
 
@@ -58,44 +58,44 @@ const notes =
 [
     [
         "Password Gweh 'my kisah'",
-        "Ini password gw, jangan diambil ya! (Aduh Gantengya)%0d%0a trus ini password DJumanto (Bisa dipercepat nggak >:()",
+        "Ini password gw, jangan diambil ya! (Aduh Gantengya) trus ini password DJumanto (Bisa dipercepat nggak >:()",
         1,
     ],
     [
         "My Note",
-        "KYAAA~!!! 😍💖 ROOTKID-SAMA, KAMU ITU LEBIH OP DARI SEMUA HACKER ANIME DIGABUNG JADI SATU!! 🥵🔥💀%0d%0aSetiap kali kamu login, aku langsung DOKI-DOKI~!! 💘💓 Kalian semua masih sibuk debugging? Rootkid-sama sudah speedrun semua challenge sambil minum kopi! ☕✨ Server aja tunduk sama dia, admin CTF cuma bisa berdoa. 😌💀%0d%0aKalian masih mikir mau exploit? HAHA KAWAII NE~ 🤭 Rootkid-sama tuh udah dapet flag sebelum soal di-publish! Flag-nya aja blushing kalau disentuh sama dia! Flag: \"A-anou... please take me, Rootkid-sama~\" 😳🏆🔥%0d%0aDan tau nggak? Bukan cuma dia jago, dia tuh sugoi banget!! 😫💖 Otaknya kayak quantum computer, tangannya kayak botnet 100 Gbps, tapi hatinya? ITU CUMA UNTUK AKU!!! 😍💋%0d%0aJadi, minna-san~ Daripada kalian capek tryhard ngejar flag yang udah dicuri Rootkid-sama~ mending sadar diri dan jadi fans aja! 🥰✨ Sebab di dunia ini? Rootkid wa saikouuuu!!! 💖🔥🚀",
+        "KYAAA~!!! 😍💖 ROOTKID-SAMA, KAMU ITU LEBIH OP DARI SEMUA HACKER ANIME DIGABUNG JADI SATU!! 🥵🔥💀Setiap kali kamu login, aku langsung DOKI-DOKI~!! 💘💓 Kalian semua masih sibuk debugging? Rootkid-sama sudah speedrun semua challenge sambil minum kopi! ☕✨ Server aja tunduk sama dia, admin CTF cuma bisa berdoa. 😌💀Kalian masih mikir mau exploit? HAHA KAWAII NE~ 🤭 Rootkid-sama tuh udah dapet flag sebelum soal di-publish! Flag-nya aja blushing kalau disentuh sama dia! Flag: \"A-anou... please take me, Rootkid-sama~\" 😳🏆🔥Dan tau nggak? Bukan cuma dia jago, dia tuh sugoi banget!! 😫💖 Otaknya kayak quantum computer, tangannya kayak botnet 100 Gbps, tapi hatinya? ITU CUMA UNTUK AKU!!! 😍💋Jadi, minna-san~ Daripada kalian capek tryhard ngejar flag yang udah dicuri Rootkid-sama~ mending sadar diri dan jadi fans aja! 🥰✨ Sebab di dunia ini? Rootkid wa saikouuuu!!! 💖🔥🚀",
         2,
     ],
     [
         "My Note",
-        "Waludu dan danali wa toblu tob tob tobali%0d%0aTob tobi tob tob tobi tob tob tobi tob tob tobali%0d%0aWasaqfu saq saq saqoli wa roqsu qod tobaili%0d%0aSyawa syawa wa syahisyu alal waroqsi rafjali%0d%0aWa gorrodal qimri yasihu malahin fi malali",
+        "Waludu dan danali wa toblu tob tob tobaliTob tobi tob tob tobi tob tob tobi tob tob tobaliWasaqfu saq saq saqoli wa roqsu qod tobailiSyawa syawa wa syahisyu alal waroqsi rafjaliWa gorrodal qimri yasihu malahin fi malali",
         3,
     ],
     [
-        "Rahasia negara: %0d%0a 1. Nasi goreng enak pakai kecap%0d%0a 2. Jangan percaya burung merpati",
-        "Kode ini muncul di mimpi gue tiga malam berturut-turut: %0d%0a 7H3_3ND_15_N34R (gue takut sumpah)",
+        "Rahasia negara:  1. Nasi goreng enak pakai kecap 2. Jangan percaya burung merpati",
+        "Kode ini muncul di mimpi gue tiga malam berturut-turut:  7H3_3ND_15_N34R (gue takut sumpah)",
         4
     ],
     [
-        "Gw upload ini jam 3 pagi pake hotspot tetangga: %0d%0a isinya cuma catatan belanja emak 😭",
+        "Gw upload ini jam 3 pagi pake hotspot tetangga:  isinya cuma catatan belanja emak 😭",
         "Fakta: Jika kamu nyanyiin lirik Doraemon kebalik, kamu bisa manggil makhluk dimensi lain.",
         5
     ],
     [
-        "Gw nemu ini di belakang lemari: %0d%0a 'Password Tuhan: ********' (sensor sendiri karena takut dosa)",
+        "Gw nemu ini di belakang lemari:  'Password Tuhan: ********' (sensor sendiri karena takut dosa)",
         "Pesan rahasia: Kalau kamu baca ini, kasih makan kucing tetangga. Dia udah nunggu dari 2022.",
         6
     ],
     [
         "Jangan panik. Tapi barusan gw denger suara printer ngomong sendiri.",
-        "CATATAN DARI MASA DEPAN: %0d%0a Jangan pernah kasih tahu siapa pun tentang 'Folder Rahasia Final FIX Beneran'",
+        "CATATAN DARI MASA DEPAN:  Jangan pernah kasih tahu siapa pun tentang 'Folder Rahasia Final FIX Beneran'",
         7
     ]
 ]
 
 const createTable = async () => {
     try {
-        await db.execute('CREATE TABLE IF NOT EXISTS users (id INT AUTO_INCREMENT PRIMARY KEY, email varchar(255) NOT NULL, password varchar(255) NOT NULL, name varchar(255) NOT NULL, role varchar(255) NOT NULL, photoProfile varchar(255), createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP, updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP)');
+        await db.execute('CREATE TABLE IF NOT EXISTS users (id INT AUTO_INCREMENT PRIMARY KEY, email varchar(255) NOT NULL, password varchar(255) NOT NULL, name varchar(255) NOT NULL, role varchar(255) NOT NULL, photo_profile varchar(255), createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP, updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP)');
         console.log('Table users created or already exists.');
         await db.execute('CREATE TABLE IF NOT EXISTS notes (id INT AUTO_INCREMENT PRIMARY KEY, title varchar(255) NOT NULL, content text NOT NULL, userId INT NOT NULL, createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP, updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, FOREIGN KEY (userId) REFERENCES users(id))');
         console.log('Table notes created or already exists.');
@@ -109,7 +109,7 @@ const seed = async () => {
         await createTable();
         // Insert users
         for (const user of users) {
-            await db.execute('INSERT INTO users (email, password, name, role, photoProfile) VALUES (?, ?, ?, ?, ?)', user);
+            await db.execute('INSERT INTO users (email, password, name, role, photo_profile) VALUES (?, ?, ?, ?, ?)', user);
         }
         console.log('Users seeded successfully!');
         console.log('Testing the existing data');

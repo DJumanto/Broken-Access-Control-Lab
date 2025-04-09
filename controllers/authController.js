@@ -2,8 +2,10 @@ import bcrypt from 'bcrypt';
 import db from '../repository/database.js';
 import fs from 'fs';
 import { serialize } from 'cookie';
+import { upload } from '../middlewares/upload.js';
+import path from 'path';
 
-export const signIn = async (req, res) => {
+export const login = async (req, res) => {
     const { email, password } = req.body;
     const sql = 'SELECT * FROM users WHERE email = ?';
     if (!email || !password) {
@@ -35,10 +37,10 @@ export const signIn = async (req, res) => {
             path: '/',
             maxAge: 60 * 60 * 24,
         });
-
+        console.log('user login: ', userData.name);
         res.setHeader('Set-Cookie', cookie);
         res.setHeader('Content-Type', 'application/json');
-        res.setHeader('Location', '/me');
+        res.setHeader('Location', `/user/${user.id}`);
         res.status(302).json({
             message: 'Login successful',
             userId: 'current user id:'+ user.id,
@@ -51,33 +53,52 @@ export const signIn = async (req, res) => {
 };
 
 export const signUp = async (req, res) => {
-    const { email, password, name, role = user } = req.body;
-    const user = await db.query('SELECT * FROM users WHERE email = ? OR name = ?', [email, name]);
-    if (user[0].length > 0) {
+
+    const connection = await db.getConnection();
+    await connection.beginTransaction();
+    try {
+      const { email, password, name, role = 'user' } = req.body;
+  
+      if (!email || !password || !name) {
+        return res.status(400).json({ message: 'Email, password, and name are required' });
+      }
+  
+      const [user] = await connection.query('SELECT * FROM users WHERE email = ? OR name = ?', [email, name]);
+      if (user.length > 0) {
         return res.status(400).json({ message: 'Email or name already exists' });
-    }
-    if (!req.file) {
+      }
+  
+      if (!req.file) {
         return res.status(400).json({ message: 'Please upload a profile picture' });
+      }
+  
+      const extension = path.extname(req.file.originalname);
+      const filename = Buffer.from(name).toString('base64') + extension;
+      const newPath = path.join('public/img/', filename);
+  
+      fs.renameSync(req.file.path, newPath);
+  
+      const hashedPassword = await bcrypt.hash(password, 10);
+      const photoProfilePath = '/img/' + filename;
+  
+      const sql = 'INSERT INTO users (email, password, name, role, photo_profile) VALUES (?, ?, ?, ?, ?)';
+      const values = [email, hashedPassword, name, role, photoProfilePath];
+  
+      const [result] = await connection.query(sql, values);
+  
+      await connection.commit();
+      connection.release();
+      console.log('User registered successfully: userid-', result.insertId);
+      return res.render('login')
+  
+    } catch (err) {
+      console.error('Error:', err);
+      if (connection) await connection.rollback();
+  
+      if (req.file && fs.existsSync(req.file.path)) {
+        fs.unlinkSync(req.file.path);
+      }
+  
+      return res.status(500).json({ message: 'Internal server error' });
     }
-    let photoProfile = req.file ? req.file.path : null;
-    let extension = photoProfile ? photoProfile.split('.').pop() : null;
-    let filename = btoa(name) + '.' + extension;
-    let newPath = 'public/img/' + filename;
-    fs.rename(photoProfile, newPath, (err) => {
-        if (err) {
-            console.error('Error renaming file:', err);
-            return res.status(500).json({ message: 'Internal server error' });
-        }
-    });
-    const path = '/img/' + filename;
-    const hashedPassword = await bcrypt.hash(password, 10);
-    const sql = 'INSERT INTO users (email, password, name, role, photo_profile) VALUES (?, ?, ?, ?, ?)';
-    const values = [email, hashedPassword, name, role, path];
-    db.query(sql, values, (err, result) => {
-        if (err) {
-            console.error('Error inserting user:', err);
-            return res.status(500).json({ message: 'Internal server error' });
-        }
-        res.status(201).json({ message: 'User registered successfully', userId: result.insertId });
-    });
-}
+  };
